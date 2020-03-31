@@ -1,2 +1,2 @@
 # d2rolls-refactored
-Destiny 2 game companion. 
+Destiny 2 game companion.
