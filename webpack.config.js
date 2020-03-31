@@ -7,7 +7,8 @@ const CaseSensitivePathPlugins = require('case-sensitive-paths-webpack-plugin');
 module.exports = {
     context: path.join(__dirname, 'src'),
     entry: {
-        app: './app.js'
+        scripts: './index.js',
+        styles: './index.scss'
     },
 
     devtool: 'source-map',
@@ -47,7 +48,7 @@ module.exports = {
                     fallback: 'style-loader',
                     use: [
                         'css-loader',
-                        'sass-loader',
+                        'sass-loader'
                     ],
                 })
             }
