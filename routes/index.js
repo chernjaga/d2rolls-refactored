@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var path = require('path');
-var itemsProcessingPromise = require('../components/extractor').itemsProcessingPromise;
+const  express = require('express');
+const  router = express.Router();
+const  path = require('path');
+const  itemsProcessingPromise = require('../components/converter').itemsProcessingPromise;
 
 /* GET home page. */
 router.get('/*', function (req, res, next) {
@@ -9,11 +9,10 @@ router.get('/*', function (req, res, next) {
 });
 
 router.post('/getWeaponList', function (req, res, next) {
-    console.log(req.body);
+    console.log(req.body.title);
     itemsProcessingPromise('en').then(function(data) {
         res.send(JSON.stringify(data));
     });
-    next();
 });
 
 module.exports = router;

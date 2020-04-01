@@ -1,4 +1,5 @@
 const apiKey = require('./apiData').key;
+const fetch = require('node-fetch');
 const params =  {
     method: 'get',
     headers: {
@@ -11,10 +12,12 @@ const getUrl = function(url) {
 };
 
 function getItems (language) {
+    console.log('*** downloading from bungie.net');
     return new Promise((resolve) => {
         fetch(getUrl('/Destiny2/Manifest/'), params)
         .then(response => response.json())
         .then(json => {
+            console.log('*** downloads processing');
             var path = json.Response.jsonWorldContentPaths[language];
             fetch('https://www.bungie.net/' + path ,params)
             .then(response => response.json())
