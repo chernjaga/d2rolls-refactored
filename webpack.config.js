@@ -7,8 +7,7 @@ const CaseSensitivePathPlugins = require('case-sensitive-paths-webpack-plugin');
 module.exports = {
     context: path.join(__dirname, 'src'),
     entry: {
-        scripts: './index.js',
-        styles: './index.scss'
+        scripts: './index.js'
     },
 
     devtool: 'source-map',
@@ -26,10 +25,8 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                loader: 'awesome-typescript-loader',
-                options: {
-                    useCache: true
-                }
+                loader: 'ts-loader',
+                exclude: /node_modules/
             },
            {
                 test: /\.jsx?$/,
@@ -61,7 +58,7 @@ module.exports = {
             BROWSER_SUPPORTS_HTML5: true
         }),
         new webpack.ProvidePlugin({ // common imports for all the source
-            react: 'react'
+            react: 'React'
         }),
         new HtmlWebpackPlugin({
             hash: true,
@@ -72,8 +69,8 @@ module.exports = {
                 removeComments: true
             }
         }),
-        new ExtractTextPlugin('[name].css'),
+        new ExtractTextPlugin('styles.css'),
     ],
 
-    watch: false
+    watch: true
 };

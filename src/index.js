@@ -1,3 +1,4 @@
-import {bootstrap} from './app/app.ts';
+import {bootstrap} from './app/app';
+import './index.scss';
 
 bootstrap();
