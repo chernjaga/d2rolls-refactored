@@ -1,0 +1,12 @@
+@import "./variables.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $cl-black-tint2;
+    color: $cl-white-tint1;
+    font-family: sans-serif;
+}

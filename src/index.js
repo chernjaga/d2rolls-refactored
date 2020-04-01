@@ -1,3 +1,3 @@
-import {testFunction} from './testDependency';
+import {bootstrap} from './app/app.ts';
 
-testFunction();
+bootstrap();
