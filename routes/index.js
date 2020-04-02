@@ -1,7 +1,7 @@
 const  express = require('express');
 const  router = express.Router();
 const  path = require('path');
-const  itemsProcessingPromise = require('../components/converter').itemsProcessingPromise;
+const  dataService = require('../components/converter');
 
 /* GET home page. */
 router.get('/*', function (req, res, next) {
@@ -9,10 +9,13 @@ router.get('/*', function (req, res, next) {
 });
 
 router.post('/getWeaponList', function (req, res, next) {
-    console.log(req.body.title);
-    itemsProcessingPromise('en').then(function(data) {
-        res.send(JSON.stringify(data));
-    });
+    if (req.body.getLocal) {
+        res.send(dataService.getLocalData('weapon', req.body.lang));
+    } else {
+        dataService.getUpdatedData('en').then(function(data) {
+            res.send(JSON.stringify(data));
+        });
+    }
 });
 
 module.exports = router;

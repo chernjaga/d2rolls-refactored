@@ -26,7 +26,7 @@ export function bootstrap() {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: 'React POST Request Example' })
+        body: JSON.stringify({ getLocal: true, lang: 'en' })
     };
     fetch('/getWeaponList', requestOptions).then(response => {
         console.log(response);
