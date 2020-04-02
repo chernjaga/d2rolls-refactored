@@ -1,10 +1,5 @@
 import * as React from 'react';
+import { WeaponsList } from '../components/weaponsList.component'
 
-export class WeaponsList extends React.Component {
 
-    render() {
-        return (
-            <div>Weapon List</div>
-        )
-    }
-}
+export var WeaponsListPage = () => (<WeaponsList listString="a"></WeaponsList>);

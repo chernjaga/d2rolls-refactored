@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Home } from './pages/home.page';
-import { WeaponsList } from './pages/weaponsList.page';
+import { WeaponsListPage } from './pages/weaponsList.page';
 import { WeaponView } from './pages/weaponView.page';
 import { FooterNavPanel } from './components/footerNavPanel.component';
 import { Route,  BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
@@ -13,10 +13,10 @@ const rootElement = document.getElementById('rootElement');
 
 var MainView = () => (<Router>
                         <Switch>
-                            <Route exact path="/" component={Home}/>
-                            <Route path="/weapons" component={WeaponsList}/>
+                            <Route exact path="/home" component={Home}/>
+                            <Route path="/weapons" component={WeaponsListPage}/>
                             <Route path="/item" component={WeaponView}/>
-                            <Redirect to="/"/>
+                            <Redirect to="/home"/>
                         </Switch>
                         <FooterNavPanel stateName="Test state!!!"/>
                     </Router>);

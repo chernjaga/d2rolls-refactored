@@ -1,5 +1,5 @@
 const getItems = require('./extractor').getItems;
-const fs = require('fs-extra');
+const fs = require('fs');
 const path = require('path');
 const weaponDataEn = require('../data/en/weapons.json');
 const localData = {
@@ -40,7 +40,7 @@ function buildWeaponItem(weapon, srcData) {
                 rarityString: weapon.inventory.tierTypeName || ''
             }
         }
-    } catch(err) {
+    } catch (err) {
         console.warn(err.message);
         console.trace(err);
     }

@@ -1,24 +1,28 @@
 import {footerActiveState} from '../interfaces/footerNavPanel.interface'
 import * as React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
+//text should be translated
 export class FooterNavPanel extends React.Component<footerActiveState> {
     render() {
         return (
-            <div>
-                <div>LOST FORGE {this.props.stateName}</div>
-                <ul>
-                    <li>
-                        <Link to="/">home</Link>
-                    </li>
-                    <li>
-                        <Link to="/weapons">weapons list</Link>
-                    </li>
-                    <li>
-                        <Link to="/item">weapon view</Link>
-                    </li>
-                </ul>
-            </div>
+            <ul className="footerNavPanel">
+                <li>
+                    <Link to="/home">
+                        <img className="footerNavLinks" src="./image/navigation_home.png" alt="home"/>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/weapons">
+                        <img className="footerNavLinks" src="./image/navigation_weapons.png" alt="weapon list"/>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/item">
+                        <img className="footerNavLinks" src="./image/navigation_settings.png" alt="setting"/>
+                    </Link>
+                </li>
+            </ul>
         )
     }
 }
